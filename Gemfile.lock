@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:moneyadviceservice/bowndler
+  remote: https://github.com/moneyadviceservice/bowndler.git
   revision: f836a295f0eac8ba02a6dc4733d000a7f1fc8a00
   specs:
     bowndler (1.0.2)
@@ -102,7 +102,7 @@ GEM
       nokogiri (~> 1.6)
       systemu (~> 2.6)
       thor (~> 0.19)
-    azure-core (0.1.6)
+    azure-core (0.1.14)
       faraday (~> 0.9)
       faraday_middleware (~> 0.10)
       nokogiri (~> 1.6)
@@ -116,7 +116,7 @@ GEM
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     bootstrap_form (2.1.1)
-    brakeman (4.2.0)
+    brakeman (4.3.1)
     bugsnag (2.8.12)
       json (~> 1.7, >= 1.7.7)
     builder (3.2.2)
@@ -129,6 +129,11 @@ GEM
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
+    claide (1.0.2)
+    claide-plugins (0.9.2)
+      cork
+      nap
+      open4 (~> 1.3)
     climate_control (0.2.0)
     cliver (0.3.2)
     clockwork (1.1.0)
@@ -146,6 +151,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    colored2 (3.1.2)
     comfortable_mexican_sofa (2.0.1.87.87)
       active_link_to (>= 1.0.0)
       bootstrap-sass (~> 3.1.0)
@@ -165,6 +171,8 @@ GEM
       tinymce-rails (>= 4.0.0)
       transitions (>= 0.1.12)
     contracts (0.16.0)
+    cork (0.3.0)
+      colored2 (~> 3.1)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     css_parser (1.3.5)
@@ -186,6 +194,21 @@ GEM
       nokogiri (~> 1.5)
       railties (>= 3, < 5)
     cucumber-wire (0.0.1)
+    danger (5.6.4)
+      claide (~> 1.0)
+      claide-plugins (>= 0.9.2)
+      colored2 (~> 3.1)
+      cork (~> 0.1)
+      faraday (~> 0.9)
+      faraday-http-cache (~> 1.0)
+      git (~> 1)
+      kramdown (~> 1.5)
+      no_proxy_fix
+      octokit (~> 4.7)
+      terminal-table (~> 1)
+    danger-rubocop (0.6.0)
+      danger
+      rubocop
     database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     descriptive_statistics (1.1.5)
@@ -215,7 +238,9 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.10.1)
+    faraday-http-cache (1.3.1)
+      faraday (~> 0.8)
+    faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     feature (1.3.0)
     ffi (1.9.23)
@@ -303,6 +328,7 @@ GEM
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
     gherkin (3.2.0)
+    git (1.4.0)
     google-api-client (0.7.1)
       addressable (>= 2.3.2)
       autoparse (>= 0.3.3)
@@ -377,20 +403,22 @@ GEM
     method_source (0.8.2)
     mime-types (2.99.3)
     mimemagic (0.3.0)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.3.0)
     minitest (5.9.1)
     multi_json (1.13.1)
     multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.21)
+    nap (1.1.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
     netrc (0.11.0)
     newrelic_rpm (4.0.0.332)
-    nokogiri (1.6.8.1)
-      mini_portile2 (~> 2.1.0)
+    no_proxy_fix (0.1.2)
+    nokogiri (1.8.4)
+      mini_portile2 (~> 2.3.0)
     nokogiri-styles (0.1.2)
       nokogiri
     oauth2 (1.0.0)
@@ -399,6 +427,9 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    octokit (4.9.0)
+      sawyer (~> 0.8.0, >= 0.5.3)
+    open4 (1.3.4)
     orm_adapter (0.5.0)
     paper_trail (3.0.8)
       activerecord (>= 3.0, < 5.0)
@@ -509,6 +540,9 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sawyer (0.8.1)
+      addressable (>= 2.3.5, < 2.6)
+      faraday (~> 0.8, < 1.0)
     seedbank (0.4.0)
     sexp_processor (4.11.0)
     shoulda-matchers (3.0.0)
@@ -550,6 +584,8 @@ GEM
     transitions (1.2.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2018.5)
+      tzinfo (>= 1.0.0)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -600,6 +636,8 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   comfortable_mexican_sofa (= 2.0.1.87.87)!
   cucumber-rails
+  danger
+  danger-rubocop
   database_cleaner
   devise
   dotenv-rails
@@ -641,6 +679,7 @@ DEPENDENCIES
   spring-commands-rspec
   syslog-logger
   terminal-table
+  tzinfo-data
   uglifier (>= 1.3.0)
   unicorn-rails
   valid_attribute

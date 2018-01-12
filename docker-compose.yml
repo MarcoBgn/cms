@@ -1,0 +1,31 @@
+version: '2.1'
+services:
+  database:
+    image: mtirsel/mysql-5.1
+    environment:
+      - MYSQL_DATABASE=cms_test
+      - MYSQL_ROOT_PASSWORD=mas
+      - MYSQL_USER=mas
+      - MYSQL_PASSWORD=mas
+    volumes:
+      - database:/var/lib/mysql/data
+    restart: always
+  rails:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    environment:
+      - GITHUB_USER=$GITHUB_TOKEN_USR
+      - GITHUB_PASS=$GITHUB_TOKEN_PSW
+      - DANGER_GITHUB_API_TOKEN=$GITHUB_TOKEN_PSW
+      - CHANGE_ID=$DANGER_CHANGE_ID
+      - CHANGE_URL=$DANGER_CHANGE_URL
+      - JENKINS_URL=$DANGER_JENKINS_URL
+      - LANG=C.UTF-8
+    links:
+      - database
+volumes:
+  bundle: {}
+  database: {}
